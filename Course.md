@@ -1,3 +1,5 @@
+#> NAVIGO
+
 ## navigo thư viện router js core
 
 <!-- https://github.com/krasimir/navigo -->
@@ -15,3 +17,7 @@
    router.on("/", () => render(HomePage, app));
    Cuối file main.js
    router.resolve();
+   _END_
+
+#> module.css mã hoá css khi xuất ra
+#> Sử dụng tailwinds or bostrap
