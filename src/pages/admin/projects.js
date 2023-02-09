@@ -1,5 +1,6 @@
 // import { dataProjects } from "../../data/dataProjects";
 import { router, useEffect, useState } from "../../lib";
+// import { router, useEffect, useState } from "@/lib";
 function PageProjects() {
   const [data, setData] = useState([]);
   useEffect(() => {

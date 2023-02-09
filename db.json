@@ -1,0 +1,29 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "name": "Dự án 1",
+      "day": "Sat Feb 04 2023 17:18:08 GMT+0700 (Giờ Đông Dương)"
+    },
+    {
+      "id": 2,
+      "name": "Dự án mẫu",
+      "day": "Sat Feb 04 2023 17:18:11 GMT+0700 (Giờ Đông Dương)"
+    },
+    {
+      "id": 3,
+      "name": "Dự án tốt nghiệp",
+      "day": "Sat Feb 04 2023 17:18:14 GMT+0700 (Giờ Đông Dương)"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
