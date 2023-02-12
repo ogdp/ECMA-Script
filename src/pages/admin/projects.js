@@ -4,15 +4,29 @@ import { router, useEffect, useState } from "../../lib";
 function PageProjects() {
   const [data, setData] = useState([]);
   useEffect(() => {
-    const dataProjects = JSON.parse(localStorage.getItem("projects")) || [];
-    setData(dataProjects);
+    fetch("http://localhost:3000/projects")
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+      });
   }, []);
+  // useEffect(() => {
+  //   const dataProjects = JSON.parse(localStorage.getItem("projects")) || [];
+  //   setData(dataProjects);
+  // }, []);
   useEffect(() => {
+    // console.log(data);
+
     const btns = document.querySelectorAll(".btn-remove");
     btns.forEach((btn) => {
       btn.addEventListener("click", () => {
         const id = btn.dataset.id;
-        removePro(id);
+        setData(data.filter((project) => project.id != id));
+        fetch(`http://localhost:3000/projects/${id}`, {
+          method: "DELETE",
+        })
+          .then((thanhcong) => {})
+          .catch((thatbai) => {});
       });
     });
     const edits = document.querySelectorAll("#edit");
@@ -28,11 +42,11 @@ function PageProjects() {
       router.navigate("/admin/project/add");
     });
   });
-  const removePro = (id) => {
-    const dataBefore = data.filter((project) => project.id != id);
-    setData(dataBefore);
-    localStorage.setItem("projects", JSON.stringify(dataBefore));
-  };
+  // const removePro = (id) => {
+  //   const dataBefore = data.filter((project) => project.id != id);
+  //   setData(dataBefore);
+  //   localStorage.setItem("projects", JSON.stringify(dataBefore));
+  // };
 
   return `
     <div>

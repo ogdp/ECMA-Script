@@ -29,3 +29,26 @@
    useState: Tạo ra một data mới thêm và xoá ra màn hình
    EX: const [data, setData] = useState(dataProjects);
    Sử dụng setState và filter: setData(data.filter((project) => project.id != id)); để cập nhật lại file data
+
+#> Sử dụng API ở dưới local bằng json-server
+
+1. npm install -g json-server
+2. Tạo file db.json
+   json-server --watch db.json
+3. Sử dụng fetch API để lấy dữ liệu
+   <!-- Lây tất cả dữ liệu trong đối tượng OBJ -->
+
+   fetch("http://localhost:3000/projects").then((response) => response.json()).then((data) => {setData(data);});
+    <!-- Lấy theo từng đối tượng riêng biệt -->
+
+   fetch(`http://localhost:3000/projects/${id}`, {
+   method: "PUT",
+   headers: {
+   "Content-Type": "application/json",
+   },
+   body: JSON.stringify(formData),
+   })
+   .then((response) => router.navigate("/admin/projects"))
+   .catch((error) => console.log(error));
+   <!-- Thêm: POST ; SỬA: PUT ; Xoá DELETE -->
+   <!-- https://www.npmjs.com/package/json-server/v/0.16.1#getting-started -->
